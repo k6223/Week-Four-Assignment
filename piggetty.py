@@ -1,34 +1,65 @@
-#
+#Collaborated with Sam and Danny
 # File Header
 #
-# Add your name to this
+# Kollin Schalhamer
 
 # Define a function called piggy(string) that returns a string
 
 def piggy(word):
+
+    for letter in word:
+	# Check if letter is a vowel
+        if letter in vowels:
+		# True?  We are done
+            pig = word + "yay"
+    else:
+		# False? Consonant
+        pig = word[1:] + word[0] + "ay"
 	
 	# Magic Happens Here
-	pig = word
+    pig = word
 	# Ignore previous line
 	
-	return pig
+    return pig
 
 # Open the file *getty.txt* for reading.  
 
-# Open a new file *piggy.txt* for writing.  
+infile = open("getty.txt", "r")
 
-# Read the getty.txt file into a string.  
+# Open a new file *piggy.txt* for writing.
+
+outfile = open("piggy.txt", "w")
+
+# Read the getty.txt file into a string. 
+
+gettystring = infile.read()
 
 # Strip out bad characters (, - .).  
 
+gettystring = gettystring.replace("-", "")
+gettystring = gettystring.replace(".", "")
+gettystring = gettystring.replace(",", "")
+
 # Split the string into a list of words.  
+
+gettystring = gettystring.split()
 
 # Create a new empty string.  
 
+pigified = ""
+
 # Loop through the list of words, pigifying each one.  
+
+for word in gettystring:
+	pigified = pigified + piggy(gettystring) + " "
 
 # Add the pigified word (and a space) to the new string.  
 
+
+
 # Write the new string to piggy.txt.  
+outfile.write(pigified)
 
 # close the files.
+infile.close()
+outfile.close()
