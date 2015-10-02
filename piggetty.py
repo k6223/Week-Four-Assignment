@@ -2,6 +2,7 @@
 # File Header
 #
 # Kollin Schalhamer
+# CIS- 125
 
 # Define a function called piggy(string) that returns a string
 
@@ -9,6 +10,7 @@ def piggy(word):
 
     for letter in word:
 	# Check if letter is a vowel
+        vowels = "aeiou"
         if letter in vowels:
 		# True?  We are done
             pig = word + "yay"
@@ -16,8 +18,8 @@ def piggy(word):
 		# False? Consonant
         pig = word[1:] + word[0] + "ay"
 	
+    
 	# Magic Happens Here
-    pig = word
 	# Ignore previous line
 	
     return pig
@@ -42,7 +44,7 @@ gettystring = gettystring.replace(",", "")
 
 # Split the string into a list of words.  
 
-gettystring = gettystring.split()
+gettylist = gettystring.split()
 
 # Create a new empty string.  
 
@@ -50,8 +52,8 @@ pigified = ""
 
 # Loop through the list of words, pigifying each one.  
 
-for word in gettystring:
-	pigified = pigified + piggy(gettystring) + " "
+for word in gettylist:
+	pigified = pigified + piggy(word) + " "
 
 # Add the pigified word (and a space) to the new string.  
 
